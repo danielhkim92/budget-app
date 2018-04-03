@@ -5,17 +5,52 @@ class Budget extends Component {
   render() {
     return (
       <div className="Budget">
-        Budget<br/>
-        Income Streams:<br/>
-        Paycheck $2000 2/month <br/>
+        <h1>Budget<br/></h1>
+        <div>
+          <h2>Income Streams:<br/></h2>
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Frequency</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Paycheck</td>
+                <td>$2000</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        Expenses:<br/>
-        Mortgage: $1300 1/month<br/>
-        Internet: $60 1/month<br/>
-        Phone: $120 1/month<br/>
-        Alcohol: $300 1/month<br/>
-
-
+        <div>
+          <h2>Expenses:<br/></h2>
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>Amount</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mortgage</td>
+                <td>$1300</td>
+              </tr>
+              <tr>
+                <td>Internet</td>
+                <td>$60</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>$120</td>
+              </tr> 
+              <tr>
+                <td>Liquor</td>
+                <td>$00</td>
+              </tr>                                         
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
