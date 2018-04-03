@@ -1,8 +1,80 @@
 import React, { Component } from 'react';
 import './Budget.css';
 
-class Budget extends Component {
+class IncomeStream extends Component {
   render() {
+    return(
+             <tr>
+                <td>{this.props.name}</td>
+                <td>{this.props.amount}</td>
+                <td>{this.props.frequency}</td>
+              </tr>
+      );
+  };
+};
+
+class Expense extends Component {
+  render() {
+    return(
+             <tr>
+                <td>{this.props.name}</td>
+                <td>{this.props.amount}</td>
+              </tr>
+      );
+  };  
+}
+
+class Budget extends Component {
+
+
+  render() {
+
+      const budget = {
+        "incomeStreams": [
+          {
+            "name": "Paycheck",
+            "amount": 2000,
+            "frequency": 2,
+          },
+          {
+            "name": "Consulting",
+            "amount": 300,
+            "frequency": 1,
+          },          
+        ],
+        "expenses": [
+          {
+            "name": "Mortgage",
+            "amount": 1300,
+          },
+          {
+            "name": "Internet",
+            "amount": 60,
+          },
+          {
+            "name": "Phone",
+            "amount": 120,
+          },
+          {
+            "name": "Liquor",
+            "amount": 399,
+          },
+        ],
+      };
+
+      const incomeStreamComponents = budget.incomeStreams.map(incomeStreamObject => {
+        return (
+          <IncomeStream {...incomeStreamObject}/>
+          )
+      })
+
+      const expenses = budget.expenses.map(expenseObject => {
+        return (
+            <Expense {...expenseObject}/>
+            )
+      })
+
+
     return (
       <div className="Budget">
         <h1>Budget<br/></h1>
@@ -10,16 +82,14 @@ class Budget extends Component {
           <h2>Income Streams:<br/></h2>
           <table>
             <thead>
-              <th>Name</th>
-              <th>Amount</th>
-              <th>Frequency</th>
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Frequency</th>
+              </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Paycheck</td>
-                <td>$2000</td>
-                <td>2</td>
-              </tr>
+              {incomeStreamComponents}
             </tbody>
           </table>
         </div>
@@ -32,22 +102,7 @@ class Budget extends Component {
               <th>Amount</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Mortgage</td>
-                <td>$1300</td>
-              </tr>
-              <tr>
-                <td>Internet</td>
-                <td>$60</td>
-              </tr>
-              <tr>
-                <td>Phone</td>
-                <td>$120</td>
-              </tr> 
-              <tr>
-                <td>Liquor</td>
-                <td>$00</td>
-              </tr>                                         
+              {expenses}                                     
             </tbody>
           </table>
         </div>
