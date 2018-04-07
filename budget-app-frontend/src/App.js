@@ -25,7 +25,7 @@ import Budget from "./Budget.js"
           },
           {
             "name": "Phone",
-            "amount": 30,
+            "amount": 120,
           },
           {
             "name": "Liquor",
